@@ -1,0 +1,38 @@
+{% extends 'olxapp/base.html' %}
+
+  {% block title_block %}
+  <title>List</title>
+  {% endblock %}
+
+  {% block body_block %}
+    {{request.user}}
+    <div class="container">
+        <h1 class="text-center mb-3">Available Vechicles</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-3 mb-5">
+            {% for vh in list %}
+            <div class="col">
+                <div class="card h-100 bg-dark text-white">
+                  <img src="{{vh.image.url}}" class="card-img-top" alt="...">
+                  <div class="card-header">
+                    <h5 class="card-title text-center">{{vh.name}}</h5>
+                    <h4 class="card-title text-center">PRICE : {{vh.price}}</h4>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text"><strong>RIDED KM</strong> : {{vh.rided_km}}</p>
+                    <p class="card-text">LOCATION : {{vh.location}}</p>
+                    <p class="card-text">PHONE NO : {{vh.phone}}</p>
+                  </div>
+                  <div class="card-body text-center d-flex justify-content-evenly">
+                      <a href="{% url 'detail' vh.id %}"><i class="fa-solid fa-eye fa-lg" style="color: #0f67ff;"></i></a>
+                      <a href="{% url 'delete' vh.id %}"><i class="fa-solid fa-trash fa-lg" style="color: #ff0000;"></i></a>
+                      <a href="{% url 'update' vh.id %}"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #ffdd00;"></i></a>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-body-white">Posted Date : {{vh.posting_date}}</small>
+                  </div>  
+                </div>
+            </div>
+            {% endfor %} 
+        </div>
+    </div>
+  {% endblock %}

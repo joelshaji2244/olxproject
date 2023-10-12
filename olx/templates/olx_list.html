@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title_block %}
+<title>Olx List</title>
+{% endblock %}
+
+{% block block_body %}
+{{request.user}}
+<body class="bg-black text-white">
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h1 class="text-center">Vechiles List</h1>
+                <a href="{%url 'olx-add' %}"><div class="btn btn-danger mb-3">ADD VECHILES</div></a>
+                <div class="table-responsive">
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">Sl no</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Rided Kilometer</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Posted Date</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        {% for vh in list %}
+                        <tr>
+                            <td class="text-center">{{forloop.counter}}</td>
+                            <td class="text-center">{{vh.name}}</td>
+                            <td class="text-center">{{vh.rided_km}}</td>
+                            <td class="text-center">{{vh.price}}</td>
+                            <td class="text-center">{{vh.location}}</td>
+                            <td class="text-center">{{vh.posting_date}}</td>
+                            <td class="text-center">{{vh.phone}}</td>
+                            <td class="text-center ">
+                                <a href="{%url 'olx-detail' vh.id %}" class=""><i class="fa-solid fa-eye fa-lg" style="color: #0f67ff;"></i></a>
+                                <a href="{%url 'olx-delete' vh.id %}" class=""><i class="fa-solid fa-trash fa-lg" style="color: #ff0000;"></i></a>
+                                <a href="{%url 'olx-edit' vh.id %}" class=""><i class="fa-solid fa-pen-to-square fa-lg" style="color: #ffdd00;"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>  
+    </div>
+</body>
+{% endblock %}

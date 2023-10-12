@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title_block %}
+<title>Olx Detail</title>
+{% endblock %}
+
+{% block block_body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card card-center mt-3 mb-3 shadow bg-dark text-white" style="width: 100%;">
+                    <img src="{{detail.image.url}}" class="card-img-top" alt="no-image">
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{detail.name}}</h5>
+                      <h4 class="card-title text-center">PRICE : {{detail.price}}</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><strong>MANUFACTURE YEAR</strong> : {{detail.mnf_year}}</li>
+                      <li class="list-group-item"><strong>RIDED KM</strong> : {{detail.rided_km}}</li>
+                      <li class="list-group-item">FUEL TYPE : {{detail.fuel_type}}</li>
+                      <li class="list-group-item">GEAR TYPE : {{detail.gear}}</li>
+                      <li class="list-group-item">SEAT CAPA. : {{detail.seat}}</li>
+                      <li class="list-group-item">LOCATION : {{detail.location}}</li>
+                      <li class="list-group-item">POSTED DATE : {{detail.posting_date}}</li>
+                      <li class="list-group-item">DISC. : {{detail.discription}}</li>
+                      <li class="list-group-item"><strong>PHONE NO.</strong> : {{detail.phone}}</li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+{% endblock %}
