@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'olx',
     'vechiles',
+    'rest_framework',
+    'olx_api',
 ]
 
 MIDDLEWARE = [
