@@ -80,7 +80,7 @@ class VechileCreateView(FormView):
 class VechileListView(ListView):
     template_name = "olxapp/list.html"
     context_object_name = "list"
-    model=Vechiles 
+    model = Vechiles 
 
 @method_decorator(signin_required, name="dispatch")
 class VechileDetailView(DetailView):
