@@ -22,15 +22,15 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('registration', RegistrationView.as_view(), name="olx-reg"),
-    path('', LoginView.as_view(), name="olx-login"),
+    path('registration/', RegistrationView.as_view(), name="olx-reg"),
+    path('login/', LoginView.as_view(), name="olx-login"),
     path('logout', logout_view, name="olx-logout"),
     path('olx/add', OlxCreateView.as_view(), name="olx-add"),
     path('olx/list', OlxListView.as_view(), name="olx-list"),
     path('olx/<int:pk>', OlxDetailView.as_view(), name="olx-detail"),
     path('olx/<int:pk>/remove', OlxDeleteView.as_view(), name="olx-delete"),
     path('olx/<int:pk>/edit', OlxUpdateView.as_view(), name="olx-edit"),
-    path('v1/olx/', include("vechiles.urls")),
+    path('', include("vechiles.urls")),
     path('api/', include("olx_api.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
